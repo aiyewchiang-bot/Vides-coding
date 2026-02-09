@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Page</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 10px 20px 30px 40px;
+            }
+
+            h1 {
+                color: #3366ff;
+            }
+
+            p {
+                font-size: 18px;
+                margin: 50px;
+            }
+
+            input, select, button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+button {
+  cursor: pointer;
+}
+        </style>
+    </head>
+    <body>
+        <h1>🌈 Mood Greeter</h1>
+        <p>Tell me your name and mood.</p>
+
+        <input id="nameInput" placeholder="Your name" />
+        <br /><br />
+
+
+        <p id="message"></p>
+
+        <script>
+            let input = document.getElementById("nameInput");
+            let result = document.getElementById("message");
+
+            input.addEventListener("input", function() {
+                let text = input.value;
+
+                if (text.length < 3) {
+                message.textContent = "Name is too short";
+                } else {
+                message.textContent = "Looks good 👍";
+                }               
+            })
+        </script>
+
+    </body>
+</html>
