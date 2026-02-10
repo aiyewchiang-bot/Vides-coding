@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Page</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 10px 20px 30px 40px;
+            }
+
+            h1 {
+                color: #3366ff;
+            }
+
+            p {
+                font-size: 18px;
+                margin: 50px;
+                color: gray;
+            }
+
+            input, select, button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            button {
+            cursor: pointer;
+            }
+           
+            #feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>🧠 Mini Quiz</h1>
+
+        <p>What is 2 + 2?</p>
+
+        <input id="answerInput" placeholder="Your answer" />
+        <button id="checkAnswer">Check</button>
+
+        <p id="feedback"></p>
+       
+        <script>
+        let answerInput = document.getElementById("answerInput");
+        let checkButton = document.getElementById("checkAnswer");
+        let feedback = document.getElementById("feedback");
+
+        checkButton.addEventListener("click", function () {
+            let answer = answerInput.value.trim();
+
+            if (answer === "") {
+            feedback.textContent = "Please enter an answer 🙂";
+            } else if (answer === "4" || answer === "four") {
+            feedback.textContent = "Correct! 🎉";
+            } else {
+            feedback.textContent = "Not quite, try again 🤔";
+            }
+        });
+        </script>
+
+
+    </body>
+</html>
