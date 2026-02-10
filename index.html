@@ -17,6 +17,7 @@
             p {
                 font-size: 18px;
                 margin: 50px;
+                color: gray;
             }
 
             input, select, button {
@@ -24,9 +25,17 @@
                 padding: 10px;
             }
 
-button {
-  cursor: pointer;
-}
+            button {
+            cursor: pointer;
+            }
+           
+            #result {
+                margin-top: 20px;
+                font-weight: bold;
+                color: greenyellow;
+            }
+
+
         </style>
     </head>
     <body>
@@ -50,27 +59,38 @@ button {
         <p id="result"></p>
 
         <script>
-            let nameInput = document.getElementById("nameInput");
-            let moodSelect = document.getElementById("moodSelect");
-            let button = document.getElementById("showMessage");
-            let result = document.getElementById("result");
+            //variables - Objects
+            let nameInput           = document.getElementById("nameInput");
+            let moodSelect          = document.getElementById("moodSelect");
+            let showMessageButton   = document.getElementById("showMessage");
+            let resultMessage       = document.getElementById("result");
 
-            button.addEventListener("click", function () {
-                let name = nameInput.value;
-                let mood = moodSelect.value;
+            //Functions
+            function showResult(text){
+                resultMessage.textContent = text;
+            }
+                
+            //Events - Button Click
+            showMessageButton.addEventListener("click", function () {
+                let userName = nameInput.value;
+                let userMood = moodSelect.value;
 
-                if (name === "" || mood === "") {
-                result.textContent = "Please enter your name and select a mood 🙂";
-                return;
+                if (userName === "" || userMood === "") {
+                    showResult = "Please enter your name and select a mood 🙂";
+                    return;
                 }
 
-                if (mood === "happy") {
-                result.textContent = `Hey ${name}! Keep smiling 😄`;
-                } else if (mood === "tired") {
-                result.textContent = `Hey ${name}, make sure to rest 😴`;
-                } else if (mood === "excited") {
-                result.textContent = `Woohoo ${name}! Channel that energy 🚀`;
+                let message;
+
+                if (userMood === "happy") {
+                    message = `Hey ${userName}! Keep smiling 😄`;
+                } else if (userMood === "tired") {
+                    message = `Hey ${userName}, make sure to rest 😴`;
+                } else if (userMood === "excited") {
+                    message = `Woohoo ${userName}! Channel that energy 🚀`;
                 }
+
+                showResult(message);
             });
         </script>
 
