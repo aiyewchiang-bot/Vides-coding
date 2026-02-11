@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First Page</title>
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f4f4f4;
+                padding: 10px 20px 30px 40px;
+            }
+
+            h1 {
+                color: #3366ff;
+            }
+
+            p {
+                font-size: 18px;
+                margin: 50px;
+                color: gray;
+            }
+
+            input, select, button {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            button {
+            cursor: pointer;
+            }
+           
+            #feedback {
+            margin-top: 15px;
+            font-weight: bold;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>🧠 Mini Quiz</h1>
+
+        <p>What is 2 + 2?</p>
+
+        <input id="answerInput" placeholder="Your answer" />
+        <button id="checkAnswer">Check</button>
+        <button id="resetQuiz">Reset</button>
+
+        <p id="feedback"></p>
+       
+        <script>
+
+            let checkButton = document.getElementById("checkAnswer");
+            let resetButton = document.getElementById("resetQuiz");
+            let attempts = 0;
+
+            checkButton.addEventListener("click", function() {
+                let answer = answerInput.value.trim();
+                attempts++;
+                
+                if  (answer === ""){
+                    feedback.textContent = "Please enter an answer";
+                }else if (answer === "4"){
+                    feedback.textContent = `Correct! it took you ${attempts} attempt(s).`;
+                }else {
+                    feedback.textContent = `Not quite. Attempt #${attempts}`;
+                }
+
+            })
+
+            resetButton.addEventListener("click", function() {
+                attempts = 0;
+                answerInput.value = "";
+                feedback.textContent = "Quiz Reset";
+            })
+        </script>
+
+
+    </body>
+</html>
